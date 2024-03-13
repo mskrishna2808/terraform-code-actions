@@ -17,10 +17,8 @@ jobs:
         with:
           terraform_version: "1.6.3"
 
-      - name: Navigate to specific folder
-        run: cd non-prod/dev/ap-south-1/
-
       - name: creating file
+        working-directory: prod/staging/us-east-1/
         run: touch file1.txt
         
       # - name: Terraform Init
@@ -54,10 +52,8 @@ jobs:
         with:
           terraform_version: "1.6.3"
 
-      - name: Navigate to specific folder
-        run: cd prod/staging/us-east-1/
-        
       - name: creating file
+        working-directory: prod/staging/us-east-1/
         run: touch file1.txt
 
       # - name: Terraform Init
