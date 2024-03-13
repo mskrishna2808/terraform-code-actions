@@ -1,4 +1,4 @@
-name: Testing Terraform Code
+name: Terraform Code folders test
 
 on: [push]
 
