@@ -9,6 +9,7 @@ jobs:
     defaults:
         run:
             shell: bash
+            working-directory: non-prod/dev/ap-south-1/
 
     steps:
       - uses: actions/checkout@v3
@@ -17,24 +18,23 @@ jobs:
         with:
           terraform_version: "1.6.3"
 
-      - name: creating file
-        working-directory: non-prod/dev/ap-south-1/
-        run: touch file1.txt
+      # - name: creating file
+      #   working-directory: non-prod/dev/ap-south-1/
+      #   run: touch file1.txt
         
-      # - name: Terraform Init
-      #   id: init
-      #   run: terraform init
+      - name: Terraform Init
+        id: init
+        run: terraform init
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   run: terraform plan -no-color
-      #   continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
 
-      # - name: Terraform Apply
-      #   run: terraform apply --auto-approve
+      - name: Terraform Apply
+        run: terraform apply --auto-approve
 
       - name: list directories
-        working-directory: non-prod/dev/ap-south-1/
         run: |
             ls -l
             pwd
@@ -45,6 +45,7 @@ jobs:
     defaults:
         run:
             shell: bash
+            working-directory: prod/staging/us-east-1/
 
     steps:
       - uses: actions/checkout@v3
@@ -53,24 +54,23 @@ jobs:
         with:
           terraform_version: "1.6.3"
 
-      - name: creating file
-        working-directory: prod/staging/us-east-1/
-        run: touch file2.txt
+      # - name: creating file
+      #   working-directory: prod/staging/us-east-1/
+      #   run: touch file2.txt
 
-      # - name: Terraform Init
-      #   id: init
-      #   run: terraform init
+      - name: Terraform Init
+        id: init
+        run: terraform init
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   run: terraform plan -no-color
-      #   continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
 
-      # - name: Terraform Apply
-      #   run: terraform apply --auto-approve
+      - name: Terraform Apply
+        run: terraform apply --auto-approve
 
       - name: list directories
-        working-directory: prod/staging/us-east-1/
         run: |
             ls -l
             pwd
