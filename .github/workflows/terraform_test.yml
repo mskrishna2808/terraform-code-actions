@@ -1,28 +1,25 @@
-name: Testing Terraform Code
+# name: Testing Terraform Code
 
-on: [push]
+# on: [push]
 
-jobs:
-  testing-terraform-code:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+# jobs:
+#   testing-terraform-code:
+#     runs-on: self-hosted
+#     steps:
+#       - uses: actions/checkout@v3
 
-      - uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: "0.13.7"
+#       - uses: hashicorp/setup-terraform@v3
+#         with:
+#           terraform_version: "1.6.3"
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
+#       - name: Terraform Init
+#         id: init
+#         run: terraform init
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color
-        continue-on-error: true
+#       - name: Terraform Plan
+#         id: plan
+#         run: terraform plan -no-color
+#         continue-on-error: true
 
-      - name: Terraform Apply
-        run: terraform apply --auto-approve
+#       - name: Terraform Apply
+#         run: terraform apply --auto-approve
