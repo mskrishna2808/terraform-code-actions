@@ -18,7 +18,7 @@ jobs:
           terraform_version: "1.6.3"
 
       - name: creating file
-        working-directory: prod/staging/us-east-1/
+        working-directory: non-prod/dev/ap-south-1/
         run: touch file1.txt
         
       # - name: Terraform Init
@@ -34,6 +34,7 @@ jobs:
       #   run: terraform apply --auto-approve
 
       - name: list directories
+        working-directory: non-prod/dev/ap-south-1/
         run: |
             ls -l
             pwd
@@ -54,7 +55,7 @@ jobs:
 
       - name: creating file
         working-directory: prod/staging/us-east-1/
-        run: touch file1.txt
+        run: touch file2.txt
 
       # - name: Terraform Init
       #   id: init
@@ -69,6 +70,7 @@ jobs:
       #   run: terraform apply --auto-approve
 
       - name: list directories
+        working-directory: prod/staging/us-east-1/
         run: |
             ls -l
             pwd
