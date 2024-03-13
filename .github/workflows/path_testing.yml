@@ -19,18 +19,21 @@ jobs:
 
       - name: Navigate to specific folder
         run: cd non-prod/dev/ap-south-1/
+
+      - name: creating file
+        run: touch file1.txt
         
-      - name: Terraform Init
-        id: init
-        run: terraform init
+      # - name: Terraform Init
+      #   id: init
+      #   run: terraform init
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color
-        continue-on-error: true
+      # - name: Terraform Plan
+      #   id: plan
+      #   run: terraform plan -no-color
+      #   continue-on-error: true
 
-      - name: Terraform Apply
-        run: terraform apply --auto-approve
+      # - name: Terraform Apply
+      #   run: terraform apply --auto-approve
 
       - name: list directories
         run: |
@@ -54,17 +57,20 @@ jobs:
       - name: Navigate to specific folder
         run: cd prod/staging/us-east-1/
         
-      - name: Terraform Init
-        id: init
-        run: terraform init
+      - name: creating file
+        run: touch file1.txt
 
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color
-        continue-on-error: true
+      # - name: Terraform Init
+      #   id: init
+      #   run: terraform init
 
-      - name: Terraform Apply
-        run: terraform apply --auto-approve
+      # - name: Terraform Plan
+      #   id: plan
+      #   run: terraform plan -no-color
+      #   continue-on-error: true
+
+      # - name: Terraform Apply
+      #   run: terraform apply --auto-approve
 
       - name: list directories
         run: |
