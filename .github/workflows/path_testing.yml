@@ -35,8 +35,8 @@ jobs:
 
       - name: list directories
         run: |
-            echo $(ls -l)
             ls -l
+            pwd
 
   us-east-1_region:
     runs-on: ubuntu-latest
@@ -70,5 +70,5 @@ jobs:
 
       - name: list directories
         run: |
-            echo $(ls -l)
             ls -l
+            pwd
